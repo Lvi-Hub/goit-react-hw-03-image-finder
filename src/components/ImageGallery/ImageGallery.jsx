@@ -5,7 +5,7 @@ import { ImageGalleryItem } from 'components/ImageGalleryItem';
 export class ImageGallery extends Component {
   render() {
     return (
-      <ul class={css.ImageGallery}>
+      <ul className={css.ImageGallery}>
         <ImageGalleryItem />
       </ul>
     );
