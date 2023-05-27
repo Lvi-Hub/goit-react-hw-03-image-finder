@@ -13,17 +13,24 @@ export class ImageGalleryItem extends Component {
 
   render() {
     const { showModal } = this.state;
-
+    console.log(this.props.gallery.hits);
     return (
       <div>
-        <li className="ImageGalleryItem">
-          <img className={css.ImageGalleryItem} src="" alt="" />
-          <button type="button" onClick={this.toggleModal}>
-            Open modal <br />
-            window
-          </button>
-        </li>
-        {console.log(this.state.showModal)}
+        {this.props.gallery.hits.map(e => {
+          console.log(e.previewURL);
+          // console.log(hits);
+          return (
+            <li className={css.ImageGalleryItem}>
+              <img className={css.ImageGalleryItem} src={e.previewURL} alt="" />
+              <button type="button" onClick={this.toggleModal}>
+                Open modal <br />
+                window
+              </button>
+            </li>
+          );
+        })}
+
+        {/* {console.log(this.state.showModal)} */}
         {showModal && (
           <Modal onClose={this.toggleModal}>
             <img src="https://placehold.it/600x400" alt="" />
