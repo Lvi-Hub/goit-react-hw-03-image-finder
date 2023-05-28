@@ -21,11 +21,15 @@ export class ImageGalleryItem extends Component {
           // console.log(hits);
           return (
             <li className={css.ImageGalleryItem}>
-              <img className={css.ImageGalleryItem} src={e.previewURL} alt="" />
-              <button type="button" onClick={this.toggleModal}>
+              <img
+                className={css.ImageGalleryItemImage}
+                src={e.webformatURL}
+                alt=""
+              />
+              {/* <button type="button" onClick={this.toggleModal}>
                 Open modal <br />
                 window
-              </button>
+              </button> */}
             </li>
           );
         })}
