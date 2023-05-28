@@ -13,38 +13,46 @@ export class ImageGalleryItem extends Component {
 
   render() {
     const { showModal } = this.state;
-    console.log(this.props.gallery.hits);
+    // console.log(this.props.gallery.hits);
     return (
-      <div>
-        {this.props.gallery.hits.map(e => {
-          console.log(e.previewURL);
-          // console.log(hits);
+      <>
+        {this.props.gallery.hits.map(({ id, webformatURL, largeImageURL }) => {
+          console.log(id);
+
           return (
-            <li className={css.ImageGalleryItem}>
-              <img
-                className={css.ImageGalleryItemImage}
-                src={e.webformatURL}
-                alt=""
-              />
-              {/* <button type="button" onClick={this.toggleModal}>
-                Open modal <br />
-                window
-              </button> */}
-            </li>
+            <>
+              <li className={css.ImageGalleryItem} key={id}>
+                <img
+                  className={css.ImageGalleryItemImage}
+                  onClick={this.toggleModal}
+                  src={webformatURL}
+                  alt=""
+                />
+              </li>
+              {showModal && (
+                <Modal onClose={this.toggleModal}>
+                  <img src={largeImageURL} alt="" />
+                  <button type="button" onClick={this.toggleModal}>
+                    Close modal <br />
+                    windows
+                  </button>
+                </Modal>
+              )}
+            </>
           );
         })}
 
         {/* {console.log(this.state.showModal)} */}
-        {showModal && (
+        {/* {showModal && (
           <Modal onClose={this.toggleModal}>
-            <img src="https://placehold.it/600x400" alt="" />
+            <img src={e.largeImageURL} alt="" />
             <button type="button" onClick={this.toggleModal}>
               Close modal <br />
               windows
             </button>
           </Modal>
-        )}
-      </div>
+        )} */}
+      </>
     );
   }
 }

@@ -1,11 +1,22 @@
+import { Component } from 'react';
 import { ImageGallery } from './ImageGallery';
 import { Searchbar } from './Searchbar';
 
-export const App = () => {
-  return (
-    <div className="App">
-      <Searchbar />
-      <ImageGallery />
-    </div>
-  );
-};
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+export class App extends Component {
+  handleFormSubmit = searchName => {
+    console.log(searchName);
+  };
+
+  render() {
+    return (
+      <div className="App">
+        <Searchbar onSubmit={this.handleFormSubmit} />
+        <ImageGallery />
+        <ToastContainer theme="colored" hideProgressBar />
+      </div>
+    );
+  }
+}
