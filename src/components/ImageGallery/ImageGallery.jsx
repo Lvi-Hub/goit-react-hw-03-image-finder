@@ -72,17 +72,19 @@ export class ImageGallery extends Component {
     if (status === 'resolved') {
       // console.log(gallery.total);
       return (
-        <ul className={css.ImageGallery}>
-          {gallery.map(({ id, webformatURL, largeImageURL }) => (
-            <ImageGalleryItem
-              key={id}
-              webformatURL={webformatURL}
-              largeImageURL={largeImageURL}
-            />
-          ))}
-          {/* <ImageGalleryItem gallery={gallery} /> */}
+        <>
+          <ul className={css.ImageGallery}>
+            {gallery.map(({ id, webformatURL, largeImageURL }) => (
+              <ImageGalleryItem
+                key={id}
+                webformatURL={webformatURL}
+                largeImageURL={largeImageURL}
+              />
+            ))}
+            {/* <ImageGalleryItem gallery={gallery} /> */}
+          </ul>
           <Button onBtnLoadmore={this.handleButtonPagination} />
-        </ul>
+        </>
       );
     }
   }
