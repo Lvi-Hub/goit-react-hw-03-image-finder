@@ -12,46 +12,24 @@ export class ImageGalleryItem extends Component {
   };
 
   render() {
+    const { webformatURL, largeImageURL } = this.props;
     const { showModal } = this.state;
     // console.log(this.props.gallery.hits);
     return (
       <>
-        {this.props.gallery.hits.map(({ id, webformatURL, largeImageURL }) => {
-          console.log(id);
-
-          return (
-            <>
-              <li className={css.ImageGalleryItem} key={id}>
-                <img
-                  className={css.ImageGalleryItemImage}
-                  onClick={this.toggleModal}
-                  src={webformatURL}
-                  alt=""
-                />
-              </li>
-              {showModal && (
-                <Modal onClose={this.toggleModal}>
-                  <img src={largeImageURL} alt="" />
-                  <button type="button" onClick={this.toggleModal}>
-                    Close modal <br />
-                    windows
-                  </button>
-                </Modal>
-              )}
-            </>
-          );
-        })}
-
-        {/* {console.log(this.state.showModal)} */}
-        {/* {showModal && (
+        <li className={css.ImageGalleryItem}>
+          <img
+            className={css.ImageGalleryItemImage}
+            onClick={this.toggleModal}
+            src={webformatURL}
+            alt=""
+          />
+        </li>
+        {showModal && (
           <Modal onClose={this.toggleModal}>
-            <img src={e.largeImageURL} alt="" />
-            <button type="button" onClick={this.toggleModal}>
-              Close modal <br />
-              windows
-            </button>
+            <img src={largeImageURL} alt="" />
           </Modal>
-        )} */}
+        )}
       </>
     );
   }
