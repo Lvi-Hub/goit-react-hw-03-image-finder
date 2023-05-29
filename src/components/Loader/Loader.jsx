@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import css from './Loader.module.css';
 import { Oval } from 'react-loader-spinner';
+import PropTypes from 'prop-types';
 
 export class Loader extends Component {
   render() {
