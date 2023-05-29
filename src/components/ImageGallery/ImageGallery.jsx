@@ -78,6 +78,7 @@ export class ImageGallery extends Component {
       return toast.error('Error Message !');
     }
 
+    const isBtnLoadMoreVisual = Math.floor(total - page * perPage) > 0;
     return (
       <>
         <ul className={css.ImageGallery}>
@@ -91,7 +92,7 @@ export class ImageGallery extends Component {
         </ul>
 
         {status === 'pending' && <Loader />}
-        {status === 'resolved' && Math.floor(total - page * perPage) > 0 && (
+        {status === 'resolved' && isBtnLoadMoreVisual && (
           <Button onBtnLoadmore={this.handleButtonPagination} />
         )}
       </>
