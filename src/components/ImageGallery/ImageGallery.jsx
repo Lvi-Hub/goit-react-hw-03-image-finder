@@ -6,7 +6,7 @@ import { toast } from 'react-toastify';
 import { ImageGalleryItem } from 'components/ImageGalleryItem';
 import { Button } from 'components/Button';
 import { Loader } from 'components/Loader';
-import { fetchSearch } from '../Service/search-api';
+import { fetchSearch } from '../../Service/search-api';
 import PropTypes from 'prop-types';
 
 export class ImageGallery extends Component {
